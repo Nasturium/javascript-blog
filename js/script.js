@@ -2,7 +2,7 @@
 /*
 document.getElementById('test-button').addEventListener('click', function(){
     console.log("link was clicked!")
-}); *                                                      /
+}); */
 
   /* remove class 'active' from all article links  */
   const activeLinks = document.querySelectorAll('.titles a.active');
@@ -22,10 +22,15 @@ for(let activeLink of activeLinks){
     clickedElement.classList.add('active')
     console.log('link clicked')
 
+    const selector= clickedElement.getAttribute('href')
+    console.log(selector)
 
-    const articleSelector = document.querySelectorAll('[href]')
+    const articleSelector= document.querySelectorAll('selector')
     
     clickedElement.getAttribute('articleSelector');
+
+    const targetArticle= document.querySelector(selector) 
+    console.log(targetArticle)
 
      }
 
