@@ -25,7 +25,7 @@ for(let activeArticle of activeArticles){
     clickedElement.classList.add('active')
     console.log('link clicked')
 
-    
+  
           
     const activeLinks = document.querySelectorAll('.titles a.active');
 
@@ -33,7 +33,7 @@ for(let activeArticle of activeArticles){
       activeLink.classList.remove('active');
     }
 
-    clickedElement.classList.add('actives')
+    clickedElement.classList.add('active')
 
     const activeArticles = document.querySelectorAll('.post.active')
 
@@ -42,17 +42,22 @@ for(let activeArticle of activeArticles){
   }
 
 
+
   /* remove class 'active' from all articles */
 
   /* get 'href' attribute from the clicked link */
   
   /* find the correct article using the selector (value of 'href' attribute) */
+  /*
   const selector = clickedElement.getAttribute('href')
-
-    const article = document.querySelector(selector)    
-    article.classList.add('active')
-
     
+    const article = document.querySelector(selector)    
+    article.classList.add('active') */
+
+    const articleSelector = clickedElement.getAttribute("href");
+  console.log("was clicked:", articleSelector);
+   const targetArticle = document.querySelector(articleSelector);
+    targetArticle.classList.add("active");
         
 }
 
