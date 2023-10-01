@@ -38,7 +38,7 @@ for(let activeArticle of activeArticles){
     const activeArticles = document.querySelectorAll('.post.active')
 
     for(let activeArticle of activeArticles){
-      activeArticle.classList.add('active'); 
+      activeArticle.classList.remove('active'); 
   }
 
 
@@ -48,13 +48,7 @@ for(let activeArticle of activeArticles){
   /* get 'href' attribute from the clicked link */
   
   /* find the correct article using the selector (value of 'href' attribute) */
-  /*
-  const selector = clickedElement.getAttribute('href')
-    
-    const article = document.querySelector(selector)    
-    article.classList.add('active') */
-
-    const articleSelector = clickedElement.getAttribute("href");
+     const articleSelector = clickedElement.getAttribute("href");
   console.log("was clicked:", articleSelector);
    const targetArticle = document.querySelector(articleSelector);
     targetArticle.classList.add("active");
