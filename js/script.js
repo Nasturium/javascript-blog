@@ -135,13 +135,14 @@ for(let activeArticle of activeArticles){
       event.preventDefault();
       const clickedElement = this;
       clickedElement.classList.add('active')
-      console.log('link clicked')
-    
+     
       /* make new constant named "clickedElement" and give it the value of "this" */
     
       /* make a new constant "href" and read the attribute "href" of the clicked element */
+        
     
       /* make a new constant "tag" and extract tag from the "href" constant */
+      const tag = href.replace('#tag-', '');
     
       /* find all tag links with class active */
     
