@@ -180,6 +180,8 @@ for(let activeArticle of activeArticles){
     
     addClickListenersToTags();
 
+    
+
     optArticleAuthorSelector = ".data-authors"
 
     function generateAuthors(){
@@ -194,7 +196,7 @@ for(let activeArticle of activeArticles){
         authorList.innerHTML='';
 
       const author = article.getAttribute(optArticleAuthorSelector)
-      
+
       }
 
     }
