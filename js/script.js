@@ -188,9 +188,13 @@ for(let activeArticle of activeArticles){
 
       for(let article of articles){
 
-      const author = article.getAttribute(optArticleAuthorSelector)
+        const authorList = article.querySelector(optArticleTagsSelector);
 
-      author.innerHTML='';
+        /* make html variable with empty string */
+        authorList.innerHTML='';
+
+      const author = article.getAttribute(optArticleAuthorSelector)
+      
       }
 
     }
