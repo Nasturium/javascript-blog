@@ -50,7 +50,8 @@ for(let activeArticle of activeArticles){
       optTitleSelector = '.post-title',
       optTitleListSelector = '.titles',
       optArticleTagsSelector = '.post-tags .list',
-      articleTags = 'data-tags';  
+      articleTags = 'data-tags', 
+      optTagsListSelector = '.tags.list';
 
       function generateTitleLinks(customSelector = ''){
     
@@ -92,6 +93,9 @@ for(let activeArticle of activeArticles){
 
     function generateTags(){
 
+        /* [NEW] create a new variable allTags with an empty array */
+        let allTags = [];
+
       /* find all articles */
        const articles = document.querySelectorAll(optArticleSelector)
 
@@ -99,10 +103,10 @@ for(let activeArticle of activeArticles){
       /* START LOOP: for every article: */
     
         /* find tags wrapper */
-        const tagList = article.querySelector(optArticleTagsSelector);
+        const tags = article.querySelector(optArticleTagsSelector);
 
         /* make html variable with empty string */
-        tagList.innerHTML='';
+        tags.innerHTML='';
     
         /* get tags from data-tags attribute */
 
@@ -119,6 +123,12 @@ for(let activeArticle of activeArticles){
           /* add generated code to html variable */
           tagList.innerHTML += linkHTML;
           console.log(tagList)
+
+           /* [NEW] check if this link is NOT already in allTags */
+      if(allTags.indexOf(linkHTML) == -1){
+        /* [NEW] add generated code to allTags array */
+        allTags.push(linkHTML);
+      }
           
         }
     
@@ -128,7 +138,14 @@ for(let activeArticle of activeArticles){
     
       /* END LOOP: for every article: */
       }
+       /* [NEW] find list of tags in right column */
+  const tagList = document.querySelector(optTagsListSelector);
+
+  /* [NEW] add html from allTags to tagList */
+  tagList.innerHTML = allTags.join(' ');
+
     }
+
     generateTags();
     function tagClickHandler(event){
       /* prevent default action for this event */
@@ -180,7 +197,6 @@ for(let activeArticle of activeArticles){
     
     addClickListenersToTags();
 
-    
 
     optArticleAuthorSelector = ".data-authors"
 
@@ -193,6 +209,7 @@ for(let activeArticle of activeArticles){
         const authorList = article.querySelector(optArticleTagsSelector);
 
         /* make html variable with empty string */
+
         authorList.innerHTML='';
 
       const author = article.getAttribute(optArticleAuthorSelector)
